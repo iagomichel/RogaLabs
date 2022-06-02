@@ -7,6 +7,8 @@ interface PostsContract {
     interface View {
         fun onFetchedData(posts: List<Post>)
         fun showLoading(isLoading: Boolean)
+
+        fun onDetailClick(idPost: Int, postTitle: String)
     }
 
     interface Presenter {

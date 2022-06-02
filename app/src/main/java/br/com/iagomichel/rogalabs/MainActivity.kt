@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.arch.toolkit.delegate.viewProvider
 import br.com.iagomichel.rogalabs.models.Post
+import br.com.iagomichel.rogalabs.ui.detail.PostDetailDialogFragment
 import br.com.iagomichel.rogalabs.ui.posts.PostsContract
 import br.com.iagomichel.rogalabs.ui.posts.PostsRecycleAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity(), PostsContract.View {
         runOnUiThread {
             with(rvPosts) {
                 visibility = View.VISIBLE
-                adapter = PostsRecycleAdapter(posts)
+                adapter = PostsRecycleAdapter(posts, this@MainActivity)
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             }
         }
@@ -47,5 +49,13 @@ class MainActivity : AppCompatActivity(), PostsContract.View {
         runOnUiThread {
             pbLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
+    }
+
+    override fun onDetailClick(idPost: Int, postTitle: String) {
+        PostDetailDialogFragment
+            .newInstance(idPost, postTitle)
+            .show(supportFragmentManager, "PostDetailDialogFragment")
+
+        //Toast.makeText(this, "xclicou $idPost", Toast.LENGTH_SHORT).show()
     }
 }

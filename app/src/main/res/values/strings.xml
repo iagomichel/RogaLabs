@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RogaLabs</string>
+    <string name="what_people_commented_about">O que a galera comentou sobre: %s</string>
 </resources>

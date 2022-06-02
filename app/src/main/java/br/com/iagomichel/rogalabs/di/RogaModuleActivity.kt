@@ -9,11 +9,9 @@ import dagger.hilt.android.components.ActivityComponent
 
 @Module
 @InstallIn(ActivityComponent::class)
-object RogaModule {
-
+object RogaModuleActivity {
     @Provides
     fun providePostPresenter(): PostsContract.Presenter {
         return PostPresenter()
     }
-
 }

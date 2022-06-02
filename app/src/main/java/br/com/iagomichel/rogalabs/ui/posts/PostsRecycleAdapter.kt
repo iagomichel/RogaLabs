@@ -4,13 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.iagomichel.rogalabs.R
 import br.com.iagomichel.rogalabs.models.Post
 
-class PostsRecycleAdapter(private val posts: List<Post>): RecyclerView.Adapter<PostsRecycleAdapter.ViewHolder>() {
+class PostsRecycleAdapter(private val posts: List<Post>, val view: PostsContract.View): RecyclerView.Adapter<PostsRecycleAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        private val cvContainer =
+            itemView.findViewById<CardView>(R.id.cv_container_item_post)
         private val tvTitle =
             itemView.findViewById<TextView>(R.id.tv_title)
         private val tvBody =
@@ -19,6 +22,10 @@ class PostsRecycleAdapter(private val posts: List<Post>): RecyclerView.Adapter<P
         fun bind(post: Post){
             tvTitle.text = post.title
             tvBody.text = post.message
+
+            cvContainer.setOnClickListener {
+                view.onDetailClick(post.id, post.title)
+            }
         }
     }
 
