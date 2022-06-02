@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +14,7 @@
             android:id="@+id/tv_title_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Postagens recentes"
+            tools:text="O que a galera comentou sobre XXX"
             android:textColor="@android:color/white"
             android:textSize="22dp"
             android:gravity="center_horizontal"/>
@@ -29,13 +27,12 @@
         android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_posts"
+        android:id="@+id/rv_comments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
         tools:visibility="visible"
-        tools:listitem="@layout/item_post"
+        tools:listitem="@layout/item_comment"
         tools:itemCount="10" />
-
 
 </LinearLayout>
