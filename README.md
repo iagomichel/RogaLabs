@@ -1,6 +1,6 @@
 # RogaLabs
 
-Desenvolvido por Iago Michel, o projeto foi criado para contenplar os requisitos do testes: 
+Desenvolvido por Iago Michel, o projeto foi criado para contemplar os requisitos do testes: 
 
 https://github.com/RogaLabs/teste-android-kotlin
 
